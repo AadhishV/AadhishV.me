@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine’s Day My Chinna Kutty Maadu ❤️</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom,#ffe6f2,#fff);
+  text-align:center;
+  overflow-x:hidden;
+  color:#b30059;
+}
+
+h1,h2 { color:#e60073; }
+
+.section {
+  background:white;
+  margin:20px auto;
+  padding:25px;
+  border-radius:25px;
+  max-width:420px;
+  box-shadow:0 0 15px #ffb3d9;
+}
+
+button {
+  padding:12px 20px;
+  margin:8px;
+  border:none;
+  border-radius:30px;
+  background:#ff4da6;
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+}
+
+button:hover {
+  transform:scale(1.05);
+}
+
+.result {
+  margin-top:15px;
+  font-size:17px;
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size:20px;
+  animation: floatUp 8s linear infinite;
+  color: #ff4da6;
+}
+
+@keyframes floatUp {
+  0% {transform: translateY(0); opacity:1;}
+  100% {transform: translateY(-100vh); opacity:0;}
+}
+
+/* Name animation */
+#animatedName {
+  font-size:22px;
+  font-weight:bold;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0% {transform:scale(1);}
+  50% {transform:scale(1.1);}
+  100% {transform:scale(1);}
+}
+
+.music-btn {
+  position:fixed;
+  top:10px;
+  right:10px;
+  background:#e60073;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio id="bgMusic" autoplay loop>
+  <source src="love.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🔊</button>
+
+<h1>Happy Valentine’s Day ❤️</h1>
+<p id="animatedName">Aaisshu ❤️ Chinna kutty maadu</p>
+
+<div class="section">
+<h2>Welcome My Love 💕</h2>
+<p>You are the reason my life feels beautiful, my Chinna kutty maadu 💖</p>
+</div>
+
+<div class="section">
+<h2>Do you love me? 😍</h2>
+<button onclick="loveYes()">Yes ❤️</button>
+<button onclick="loveYes()">Yes obviously 😘</button>
+<div id="loveText" class="result"></div>
+</div>
+
+<div class="section">
+<h2>Mood Detector 🤖❤️</h2>
+<button onclick="checkMood()">Check Suba maadu's mood</button>
+<div id="moodText" class="result"></div>
+</div>
+
+<div class="section">
+<h2>Secret Message 💌</h2>
+<button onclick="revealMsg()">Tap to Reveal</button>
+<div id="secretText" class="result"></div>
+</div>
+
+<div class="section">
+<h2>Love Percentage 💯</h2>
+<button onclick="loveMeter()">Check Love %</button>
+<div id="loveMeterText" class="result"></div>
+</div>
+
+<div class="section">
+<h2>Pick a Kiss 💋</h2>
+<button onclick="kiss()">😘</button>
+<button onclick="kiss()">😘</button>
+<button onclick="kiss()">😘</button>
+<div id="kissText" class="result"></div>
+</div>
+
+<div class="section">
+<h2>Cute Teddy For You 🧸</h2>
+<img src="teddy.gif" width="150">
+<p>Sending unlimited hugs to my Suba maadu 🤍</p>
+</div>
+
+<div class="section">
+<h2>Forever Yours ❤️</h2>
+<p>Whether you are my Chinna kutty maadu or my Suba maadu…  
+I will always be your Aaisshu 💕</p>
+<p><b>Forever yours 🤍 — Aaisshu</b></p>
+</div>
+
+<script>
+// Name switching
+setInterval(function(){
+  const name = document.getElementById("animatedName");
+  if(name.innerHTML.includes("Chinna")){
+    name.innerHTML="Aaisshu ❤️ Suba maadu";
+  } else {
+    name.innerHTML="Aaisshu ❤️ Chinna kutty maadu";
+  }
+},4000);
+
+// Floating hearts generator
+setInterval(function(){
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.style.left=Math.random()*100+"vw";
+  heart.innerHTML="❤️";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),8000);
+},800);
+
+function loveYes(){
+  document.getElementById("loveText").innerHTML=
+  "Answer locked 🔒 Love confirmed forever ♾️❤️";
+}
+
+function checkMood(){
+  const moods=[
+    "😄 Happy mood – Chocolate needed!",
+    "😍 Romantic mood – Hug compulsory!",
+    "😴 Sleepy mood – Pillow mode ON",
+    "😠 Cute angry mood – Say sorry quickly 😜"
+  ];
+  document.getElementById("moodText").innerHTML=
+  moods[Math.floor(Math.random()*moods.length)];
+}
+
+function revealMsg(){
+  document.getElementById("secretText").innerHTML=
+  "Whether you are Chinna kutty maadu or Suba maadu… I am always yours 💕";
+}
+
+function loveMeter(){
+  document.getElementById("loveMeterText").innerHTML=
+  "Love Level: 1000% ❤️ Warning ⚠️ Overdose detected 😘";
+}
+
+function kiss(){
+  document.getElementById("kissText").innerHTML=
+  "💋 Kiss delivered successfully! One more? 😘";
+}
+
+function toggleMusic(){
+  const music=document.getElementById("bgMusic");
+  if(music.paused){
+    music.play();
+  }else{
+    music.pause();
+  }
+}
+</script>
+
+</body>
+</html>
